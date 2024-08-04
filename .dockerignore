@@ -1,22 +1,15 @@
-# See https://docs.docker.com/engine/reference/builder/#dockerignore-file for more about ignoring files.
-
-# Ignore git directory.
+*.local
+.DS_Store
+/.bundle/*
+!/.bundle/config.development
+!/.bundle/config.production
+.directory
 /.git/
-
-# Ignore bundler config.
-/.bundle
-
-# Ignore all environment files (except templates).
-/.env*
-!/.env*.erb
-
-# Ignore all default key files.
-/config/master.key
+Thumbs.db
+[Dd]esktop.ini
 /config/credentials/*.key
-
-# Ignore all logfiles and tempfiles.
+/config/master.key
 /log/*
-/tmp/*
-
-# Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
+/tmp/*
+~$*

@@ -1,0 +1,22 @@
+# Config for Rubocop.
+
+inherit_gem:
+  rubocop-configs:
+    - _all_cops.yml
+    - _ruby.yml
+    - bundler.yml
+    - performance.yml
+    - rails.yml
+    - rake.yml
+    - thread_safety.yml
+
+AllCops:
+  TargetRubyVersion: 3.3
+
+Naming/FileName:
+  Exclude:
+    - .tools/Gemfile
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - '.tools/**/*.rb'
