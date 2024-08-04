@@ -12,6 +12,10 @@ files = [
 ]
 
 FileUtils.chdir(APP_ROOT) do
+  if !File.exist?(".bundle/config") && File.exist?(".bundle/config.development")
+    `cp .bundle/config.development .bundle/config`
+  end
+
   files.each do |file|
     unless File.exist?(file[:destination])
       puts "\n== Creating file #{file[:destination]} =="

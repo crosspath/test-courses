@@ -5,15 +5,15 @@
 Run these lines after git cloning:
 
 ```sh
+bin/configs
 bundle install
 cd .tools; bundle install; cd ..
-bin/configs
 bin/overcommit --install
 ```
 
 Change parameters in `.env.local` & `.env.test.local` file.
 
-After that you can create and fill database: `bin/rails db:prepare`.
+After that you can create and fill database: `bin/rails db:prepare` or `bin/setup`.
 
 Run `bin/rswag` to regenerate file `swagger/v1/swagger.yaml`.
 
