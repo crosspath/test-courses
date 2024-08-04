@@ -3,4 +3,6 @@ class Course < ApplicationRecord
 
   has_many :courses_competences
   has_many :competences, through: :courses_competences
+
+  validates :name, presence: true
 end
