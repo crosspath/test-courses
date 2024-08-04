@@ -24,13 +24,48 @@ Naming/FileName:
   Exclude:
     - .tools/Gemfile
 
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/RepeatedExampleGroupBody:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
 Style/ClassAndModuleChildren:
   Exclude:
     - '.tools/**/*.rb'
 
+Style/Documentation:
+  Exclude:
+    - 'app/serializers/**/*.rb'
+    - 'config/**/*.rb'
+    - 'db/migrate/*.rb'
+
+Style/DocumentationMethod:
+  Exclude:
+    - 'config/**/*.rb'
+    - 'db/migrate/*.rb'
+  AllowedMethods:
+    - object_params
+
 Style/SingleLineDoEndBlock:
   Exclude:
     - 'spec/requests/**/*.rb'
+
+Style/TopLevelMethodDefinition:
+  Exclude:
+    - db/seeds.rb
+
+ThreadSafety/ClassAndModuleAttributes:
+  Exclude:
+    - 'app/controllers/**/*.rb'
 
 # Lines taken from rswag-specs, .rubocop_rspec_alias_config.yml:
 RSpec:

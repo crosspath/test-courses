@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 author_names = %w[Johann Gregory Ivan]
 
 # Author#name => {Course#name => [Competence#name, ...], ...}
@@ -39,7 +41,7 @@ def create_courses(courses, authors, competences)
   courses.each_with_object([]) do |(author_name, courses_hash), acc|
     author = authors[author_name]
     courses_hash.each do |course_name, competences_list|
-      course = Course.find_or_create_by!(name: course_name, author: authors[author_name])
+      course = Course.find_or_create_by!(name: course_name, author:)
       course.competences = competences.slice(*competences_list).values
       acc << course
     end

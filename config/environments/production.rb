@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
@@ -26,10 +28,11 @@ Rails.application.configure do
 
   config.i18n.fallbacks = true
 
-  # "info" includes generic and useful information about system operation, but avoids logging too much
+  # "info" includes generic and useful information about system operation, but avoids logging
+  # too much
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
-  config.logger = ActiveSupport::Logger.new(STDOUT)
+  config.logger = ActiveSupport::Logger.new($stdout)
     .tap { |logger| logger.formatter = Logger::Formatter.new }
     .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
   config.log_tags = [:request_id]

@@ -5,6 +5,7 @@
 module Overcommit::Hook::PostCheckout
   # Update databases for bundle-audit, bundle-leak.
   class UpdateGemsData < Base
+    # Main action of this hook.
     def run
       result = execute("bin/bundle-leak update && bin/bundle-audit update")
       return :fail, result.stdout unless result.success?

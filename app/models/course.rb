@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Activity for teaching students.
 class Course < ApplicationRecord
   belongs_to :author
 

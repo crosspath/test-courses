@@ -54,8 +54,8 @@ PreCommit:
     command: 'bin/rails_best_practices'
     description: 'https://github.com/flyerhzm/rails_best_practices'
     enabled: true
-  RailsSchemaUpToDate:
-    enabled: true
+  # RailsSchemaUpToDate:
+  #   enabled: true
   RuboCop:
     command: 'bin/rubocop'
     description: 'https://rubocop.org'

@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+# Disallow storing courses without authors.
 module Authors::Delete
   extend self
 
+  # At least one author should exist if courses exist.
   class LastAuthorError < RuntimeError
     def initialize(_ = nil)
       super("Cannot remove this author because no other authors known in database")

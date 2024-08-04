@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require "swagger_helper"
 
-RSpec.describe "CoursesController", type: :request do
+RSpec.describe "CoursesController" do
   shared_context "parameters for new data" do
     parameter name: :name, in: :query, type: :string
     parameter name: :author_id, in: :query, type: :string
@@ -26,7 +28,7 @@ RSpec.describe "CoursesController", type: :request do
           create(:course, name: "Highly Excessive Metals")
         end
 
-        run_test! do
+        run_test! "correct response" do
           expect(json[:error]).to be_nil
           expect(json[:objects].size).to eq(2)
         end
@@ -40,7 +42,7 @@ RSpec.describe "CoursesController", type: :request do
 
       response(200, "successful") do
         include_context "valid data"
-        run_test! { expect(json.dig(:object, :name)).to eq(name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(name) }
       end
     end
   end
@@ -56,7 +58,7 @@ RSpec.describe "CoursesController", type: :request do
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(course.name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(course.name) }
       end
     end
 
@@ -67,7 +69,7 @@ RSpec.describe "CoursesController", type: :request do
 
       response(200, "successful") do
         include_context "valid data"
-        run_test! { expect(json.dig(:object, :name)).to eq(name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(name) }
       end
     end
 
@@ -76,7 +78,7 @@ RSpec.describe "CoursesController", type: :request do
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(course.name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(course.name) }
       end
     end
   end

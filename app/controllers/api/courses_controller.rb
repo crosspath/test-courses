@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# /api/courses
 class API::CoursesController < ApplicationController
   self.model = Course
   self.serializer = CourseSerializer

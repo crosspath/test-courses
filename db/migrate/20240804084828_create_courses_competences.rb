@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCoursesCompetences < ActiveRecord::Migration[7.1]
   def change
     create_table :courses_competences do |t|

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require "swagger_helper"
 
-RSpec.describe "AuthorsController", type: :request do
+RSpec.describe "AuthorsController" do
   shared_context "parameters for new data" do
     parameter name: :name, in: :query, type: :string
   end
@@ -20,7 +22,7 @@ RSpec.describe "AuthorsController", type: :request do
           create(:author, name: "Ivy")
         end
 
-        run_test! do
+        run_test! "correct response" do
           expect(json[:error]).to be_nil
           expect(json[:objects].size).to eq(2)
         end
@@ -34,7 +36,7 @@ RSpec.describe "AuthorsController", type: :request do
 
       response(200, "successful") do
         include_context "valid data"
-        run_test! { expect(json.dig(:object, :name)).to eq(name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(name) }
       end
     end
   end
@@ -50,7 +52,7 @@ RSpec.describe "AuthorsController", type: :request do
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(author.name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(author.name) }
       end
     end
 
@@ -61,7 +63,7 @@ RSpec.describe "AuthorsController", type: :request do
 
       response(200, "successful") do
         include_context "valid data"
-        run_test! { expect(json.dig(:object, :name)).to eq(name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(name) }
       end
     end
 
@@ -70,7 +72,7 @@ RSpec.describe "AuthorsController", type: :request do
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(author.name) }
+        run_test!("correct response") { expect(json.dig(:object, :name)).to eq(author.name) }
       end
     end
   end
