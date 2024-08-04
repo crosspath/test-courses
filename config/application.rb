@@ -19,8 +19,11 @@ module Courses
   class Application < Rails::Application
     config.load_defaults(7.1)
 
+    config.api_only = true
     config.autoload_lib(ignore: %w[assets tasks])
 
-    config.api_only = true
+    config.generators do |g|
+      g.factory_bot(dir: "factories", filename_proc: ->(t) { t.singularize })
+    end
   end
 end

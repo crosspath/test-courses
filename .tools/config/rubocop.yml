@@ -5,13 +5,20 @@ inherit_gem:
     - _all_cops.yml
     - _ruby.yml
     - bundler.yml
+    - factory_bot.yml
     - performance.yml
     - rails.yml
     - rake.yml
+    - rspec.yml
+    - rspec_rails.yml
     - thread_safety.yml
 
 AllCops:
   TargetRubyVersion: 3.3
+
+Layout/RedundantLineBreak:
+  Exclude:
+    - 'factories/**/*.rb'
 
 Naming/FileName:
   Exclude:
@@ -20,3 +27,26 @@ Naming/FileName:
 Style/ClassAndModuleChildren:
   Exclude:
     - '.tools/**/*.rb'
+
+Style/SingleLineDoEndBlock:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+# Lines taken from rswag-specs, .rubocop_rspec_alias_config.yml:
+RSpec:
+  Language:
+    ExampleGroups:
+      Regular:
+        - path
+        - response
+        - get
+        - post
+        - patch
+        - put
+        - delete
+        - head
+        - options
+        - trace
+    Examples:
+      Regular:
+        - run_test!
