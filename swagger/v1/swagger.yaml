@@ -7,11 +7,15 @@ paths:
   "/api/authors":
     get:
       summary: list authors
+      tags:
+      - Authors
       responses:
         '200':
           description: successful
     post:
       summary: create author
+      tags:
+      - Authors
       parameters:
       - name: name
         in: query
@@ -29,11 +33,15 @@ paths:
         type: string
     get:
       summary: show author
+      tags:
+      - Authors
       responses:
         '200':
           description: successful
     put:
       summary: update author
+      tags:
+      - Authors
       parameters:
       - name: name
         in: query
@@ -44,6 +52,130 @@ paths:
           description: successful
     delete:
       summary: delete author
+      tags:
+      - Authors
+      responses:
+        '200':
+          description: successful
+  "/api/competences":
+    get:
+      summary: list competences
+      tags:
+      - Competences
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create competence
+      tags:
+      - Competences
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+  "/api/competences/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show competence
+      tags:
+      - Competences
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update competence
+      tags:
+      - Competences
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete competence
+      tags:
+      - Competences
+      responses:
+        '200':
+          description: successful
+  "/api/courses":
+    get:
+      summary: list courses
+      tags:
+      - Courses
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create course
+      tags:
+      - Courses
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: author_id
+        in: query
+        schema:
+          type: string
+      - name: competence_ids
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+  "/api/courses/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show course
+      tags:
+      - Courses
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update course
+      tags:
+      - Courses
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: author_id
+        in: query
+        schema:
+          type: string
+      - name: competence_ids
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete course
+      tags:
+      - Courses
       responses:
         '200':
           description: successful

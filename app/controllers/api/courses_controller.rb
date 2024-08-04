@@ -5,6 +5,8 @@ class API::CoursesController < ApplicationController
   private
 
   def object_params
-    params.permit(:name, :author_id, :competence_ids)
+    res = params.permit(:name, :author_id, :competence_ids)
+    res[:competence_ids] = res[:competence_ids].split(",") if res[:competence_ids].is_a?(String)
+    res
   end
 end

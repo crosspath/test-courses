@@ -1,23 +1,23 @@
 require "swagger_helper"
 
-RSpec.describe "AuthorsController", type: :request do
+RSpec.describe "CompetencesController", type: :request do
   shared_context "parameters for new data" do
     parameter name: :name, in: :query, type: :string
   end
 
   shared_context "valid data" do
-    let(:name) { "Susie" }
+    let(:name) { "Mentoring" }
   end
 
-  path "/api/authors" do
-    get("list authors") do
-      tags "Authors"
+  path "/api/competences" do
+    get("list competences") do
+      tags "Competences"
       produces "application/json"
 
       response(200, "successful") do
         before do
-          create(:author)
-          create(:author, name: "Ivy")
+          create(:competence)
+          create(:competence, name: "Screwing")
         end
 
         run_test! do
@@ -27,8 +27,8 @@ RSpec.describe "AuthorsController", type: :request do
       end
     end
 
-    post("create author") do
-      tags "Authors"
+    post("create competence") do
+      tags "Competences"
       produces "application/json"
       include_context "parameters for new data"
 
@@ -39,23 +39,23 @@ RSpec.describe "AuthorsController", type: :request do
     end
   end
 
-  path "/api/authors/{id}" do
+  path "/api/competences/{id}" do
     parameter name: "id", in: :path, type: :string
 
-    let(:author) { create(:author) }
-    let(:id) { author.id }
+    let(:competence) { create(:competence) }
+    let(:id) { competence.id }
 
-    get("show author") do
-      tags "Authors"
+    get("show competence") do
+      tags "Competences"
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(author.name) }
+        run_test! { expect(json.dig(:object, :name)).to eq(competence.name) }
       end
     end
 
-    put("update author") do
-      tags "Authors"
+    put("update competence") do
+      tags "Competences"
       produces "application/json"
       include_context "parameters for new data"
 
@@ -65,12 +65,12 @@ RSpec.describe "AuthorsController", type: :request do
       end
     end
 
-    delete("delete author") do
-      tags "Authors"
+    delete("delete competence") do
+      tags "Competences"
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(author.name) }
+        run_test! { expect(json.dig(:object, :name)).to eq(competence.name) }
       end
     end
   end

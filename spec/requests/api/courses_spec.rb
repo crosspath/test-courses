@@ -1,23 +1,29 @@
 require "swagger_helper"
 
-RSpec.describe "AuthorsController", type: :request do
+RSpec.describe "CoursesController", type: :request do
   shared_context "parameters for new data" do
     parameter name: :name, in: :query, type: :string
+    parameter name: :author_id, in: :query, type: :string
+    parameter name: :competence_ids, in: :query, type: :string
   end
 
   shared_context "valid data" do
-    let(:name) { "Susie" }
+    let(:name) { "Batch Processing" }
+    let(:author_id) { create(:author).id }
+    let(:competence_ids) do
+      [create(:competence).id, create(:competence, name: "Mentoring").id].join(",")
+    end
   end
 
-  path "/api/authors" do
-    get("list authors") do
-      tags "Authors"
+  path "/api/courses" do
+    get("list courses") do
+      tags "Courses"
       produces "application/json"
 
       response(200, "successful") do
         before do
-          create(:author)
-          create(:author, name: "Ivy")
+          create(:course)
+          create(:course, name: "Highly Excessive Metals")
         end
 
         run_test! do
@@ -27,8 +33,8 @@ RSpec.describe "AuthorsController", type: :request do
       end
     end
 
-    post("create author") do
-      tags "Authors"
+    post("create course") do
+      tags "Courses"
       produces "application/json"
       include_context "parameters for new data"
 
@@ -39,23 +45,23 @@ RSpec.describe "AuthorsController", type: :request do
     end
   end
 
-  path "/api/authors/{id}" do
+  path "/api/courses/{id}" do
     parameter name: "id", in: :path, type: :string
 
-    let(:author) { create(:author) }
-    let(:id) { author.id }
+    let(:course) { create(:course) }
+    let(:id) { course.id }
 
-    get("show author") do
-      tags "Authors"
+    get("show course") do
+      tags "Courses"
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(author.name) }
+        run_test! { expect(json.dig(:object, :name)).to eq(course.name) }
       end
     end
 
-    put("update author") do
-      tags "Authors"
+    put("update course") do
+      tags "Courses"
       produces "application/json"
       include_context "parameters for new data"
 
@@ -65,12 +71,12 @@ RSpec.describe "AuthorsController", type: :request do
       end
     end
 
-    delete("delete author") do
-      tags "Authors"
+    delete("delete course") do
+      tags "Courses"
       produces "application/json"
 
       response(200, "successful") do
-        run_test! { expect(json.dig(:object, :name)).to eq(author.name) }
+        run_test! { expect(json.dig(:object, :name)).to eq(course.name) }
       end
     end
   end

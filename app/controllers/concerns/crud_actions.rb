@@ -2,7 +2,7 @@ module CrudActions
   # @param base [ApplicationController]
   def self.included(base)
     base.class_eval do
-      thread_cattr_accessor(:model, :serializer, instance_writer: false)
+      cattr_accessor(:model, :serializer, instance_writer: false)
 
       before_action(:find_object, only: %i[destroy show update])
     end
@@ -24,7 +24,7 @@ module CrudActions
   end
 
   def index
-    render_objects(model.all)
+    render_objects(model.order(:id))
   end
 
   def show
