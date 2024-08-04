@@ -1,21 +1,17 @@
-author_names = %w[
-  Johann
-  Gregory
-  Ivan
-]
+author_names = %w[Johann Gregory Ivan]
 
 # Author#name => {Course#name => [Competence#name, ...], ...}
 courses = {
   "Johann" => {
-    "Statistics" => ["Maths"]
+    "Statistics" => ["Maths"],
   },
   "Gregory" => {
     "3D Modelling" => ["Maths", "Analysis"],
-    "AI" => ["Maths"]
+    "AI" => ["Maths"],
   },
   "Ivan" => {
-    "Geospatial Data Processing" => ["Maths", "Fuzzy Search"]
-  }
+    "Geospatial Data Processing" => ["Maths", "Fuzzy Search"],
+  },
 }
 
 # @param author_names [Array<String>]
@@ -65,7 +61,7 @@ courses = create_courses(courses, authors, competences)
 results = [
   {count: authors.size, s: "author", p: "authors"},
   {count: competences.size, s: "competence", p: "competences"},
-  {count: courses.size, s: "course", p: "courses"}
+  {count: courses.size, s: "course", p: "courses"},
 ]
 
 puts "Created:"
