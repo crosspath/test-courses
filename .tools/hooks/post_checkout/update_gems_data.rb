@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 # Run after updating this file:
 #   bin/overcommit --sign post-checkout
 module Overcommit::Hook::PostCheckout

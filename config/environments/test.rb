@@ -16,7 +16,5 @@ Rails.application.configure do
   # config.i18n.raise_on_missing_translations = true
   config.public_file_server.enabled = true
 
-  config.public_file_server.headers = {
-    "Cache-Control" => "public, max-age=#{1.hour.to_i}"
-  }
+  config.public_file_server.headers = {"Cache-Control" => "public, max-age=#{1.hour.to_i}"}
 end
