@@ -1,24 +1,22 @@
-# README
+# TestCourses
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+Run these lines after git cloning:
 
-* Ruby version
+```sh
+bundle install
+cd .tools; bundle install; cd ..
+bin/configs
+bin/overcommit --install
+```
 
-* System dependencies
+Change parameters in `.env.local` & `.env.test.local` file.
 
-* Configuration
+After that you can create and fill database: `bin/rails db:prepare`.
 
-* Database creation
+Run `bin/rswag` to regenerate file `swagger/v1/swagger.yaml`.
 
-* Database initialization
+Run `bin/rspec` for test suite.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run `bin/rails s` and go to `http://localhost:3000/api-docs` to open OpenAPI UI.

@@ -7,7 +7,7 @@ require "fileutils"
 APP_ROOT = File.expand_path('..', __dir__)
 
 files = [
-  {source: ".env.template", destination: ".env"},
+  {source: ".env.template", destination: ".env.local"},
   {source: ".env.test", destination: ".env.test.local"},
 ]
 
