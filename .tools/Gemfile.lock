@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/crosspath/rubocop-configs.git
-  revision: 3d6130ad168032e084c2938671124f67155d8f23
+  revision: 013a5ec078d212485f8f85949d21db4e9c2ddb2a
   specs:
-    rubocop-configs (0.15.0)
+    rubocop-configs (0.16.1)
       rake (>= 13.0)
 
 GEM
@@ -50,7 +50,8 @@ GEM
     bundler-leak (0.3.0)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
-    childprocess (5.0.0)
+    childprocess (5.1.0)
+      logger (~> 1.5)
     code_analyzer (0.5.5)
       sexp_processor
     concurrent-ruby (1.3.3)
@@ -79,6 +80,7 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
+    logger (1.6.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -100,8 +102,8 @@ GEM
       childprocess (>= 0.6.3, < 6)
       iniparse (~> 1.4)
       rexml (~> 3.2)
-    parallel (1.25.1)
-    parser (3.3.4.0)
+    parallel (1.26.1)
+    parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
     prism (0.30.0)
@@ -172,7 +174,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.3)
+    rubocop-ast (1.32.0)
       parser (>= 3.3.1.0)
     rubocop-factory_bot (2.26.1)
       rubocop (~> 1.61)
@@ -186,7 +188,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (3.0.3)
+    rubocop-rspec (3.0.4)
       rubocop (~> 1.61)
     rubocop-rspec_rails (2.30.0)
       rubocop (~> 1.61)

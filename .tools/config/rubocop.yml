@@ -11,6 +11,7 @@ inherit_gem:
     - rake.yml
     - rspec.yml
     - rspec_rails.yml
+    - rswag.yml
     - thread_safety.yml
 
 AllCops:
@@ -24,19 +25,8 @@ Naming/FileName:
   Exclude:
     - .tools/Gemfile
 
-Rails/Output:
-  Exclude:
-    - db/seeds.rb
-
 RSpec/ContextWording:
   Enabled: false
-
-RSpec/NestedGroups:
-  Max: 4
-
-RSpec/RepeatedExampleGroupBody:
-  Exclude:
-    - 'spec/requests/**/*.rb'
 
 Style/ClassAndModuleChildren:
   Exclude:
@@ -45,43 +35,11 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Exclude:
     - 'app/serializers/**/*.rb'
-    - 'config/**/*.rb'
-    - 'db/migrate/*.rb'
 
 Style/DocumentationMethod:
-  Exclude:
-    - 'config/**/*.rb'
-    - 'db/migrate/*.rb'
   AllowedMethods:
     - object_params
-
-Style/SingleLineDoEndBlock:
-  Exclude:
-    - 'spec/requests/**/*.rb'
-
-Style/TopLevelMethodDefinition:
-  Exclude:
-    - db/seeds.rb
 
 ThreadSafety/ClassAndModuleAttributes:
   Exclude:
     - 'app/controllers/**/*.rb'
-
-# Lines taken from rswag-specs, .rubocop_rspec_alias_config.yml:
-RSpec:
-  Language:
-    ExampleGroups:
-      Regular:
-        - path
-        - response
-        - get
-        - post
-        - patch
-        - put
-        - delete
-        - head
-        - options
-        - trace
-    Examples:
-      Regular:
-        - run_test!
